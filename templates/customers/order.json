@@ -12,15 +12,9 @@
     "main": {
       "type": "main-order",
       "settings": {}
-    },
-    "invoice": {
-      "type": "order-invoice",
-      "settings": {}
     }
   },
   "order": [
-    "main",
-    "invoice"
+    "main"
   ]
 }
-
