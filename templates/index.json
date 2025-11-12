@@ -1,28 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "image_banner": {
+    "custom_liquid_JFPrCG": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        "button {}",
+        "a {position: fixed; width: 100vw; top: 100px; text-align: center; z-index: 1000; opacity: 100; margin: 0 auto; font-size: 44px; color: black;}"
+      ],
+      "settings": {
+        "custom_liquid": "<a href=\"pages/somewhere-nowhere\">view lookbook</a>",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_mWXzdx": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        ".link-wrap {position: absolute !important; z-index: 100; left: 0; right: 0; bottom: 0; top: 0; width: fit-content; border: 1px solid black; height: fit-content; padding: 16px; background: white; margin: auto; display: flex; flex-direction: column; gap: 24px; justify-content: center;}",
+        "a {text-align: center !important;}"
+      ],
+      "settings": {
+        "custom_liquid": "<style>\n#background-video {\nheight: 100vh;\nwidth: 100%;\n  object-fit: cover;\n  position: relative;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 0;\n\n#video--container {\n  height: 100vh;\n  width: 100%;\n}\n</style>\n<div class=\"link-wrap\">\n<a class=\"link helv-reset center\" href=\"pages/somewhere-nowhere \">view fw25 lookbook</a>\n<a class=\"link helv-reset center\" href=\"https://www.youtube.com/watch?v=bsE1j61evGk\">view fw25 video</a>\n</div>\n<video id=\"background-video\" muted autoplay playsinline loop>\n    <source src=\"https://cdn.shopify.com/videos/c/o/v/95f07d479c9c49a19c7b934a9da606ab.mp4\"          type=\"video/mp4\">\n</video>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_9dihyb": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<style>\n#background-white {\nheight: 100vh;\nwidth: 100%;\nbackground: white;\npadding: 45vh 0;\n}\n\n#video--container {\n  height: 100vh;\n  width: 100%;\n}\n#link-wrap {\nz-index: 10;\nwidth: 200px;\nheight: 50px;\ntext-align: center !important;\nborder: 1px solid black;\npadding: 10px;\nmargin: 0 auto;\nheight: auto;\n}\n</style>\n<div id=\"background-white\">\n<div id=\"link-wrap\">\n<a class=\"link helv-reset center\" href=\"pages/tristesse-imperiale\">view ss26 lookbook</a>\n</div>\n</div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_47xaye": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<style>\n#background-video {\n  height: 100vh;\n  width: 100vw;\n  object-fit: cover;\n  position: relative;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  z-index: 0;\n}\n</style>\n<img id=\"background-video\" src='https://cdn.shopify.com/s/files/1/0619/9446/7466/files/Untitled-3.jpg?v=1733755779'>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "a5e8ff74-ebb4-410d-88fd-8b56208bbbd4": {
       "type": "image-banner",
       "blocks": {
-        "heading": {
+        "template--15932363800714__a5e8ff74-ebb4-410d-88fd-8b56208bbbd4-heading-1": {
           "type": "heading",
           "settings": {
             "heading": "Image banner",
-            "heading_size": "h0"
+            "heading_size": "h1"
           }
         },
-        "text": {
+        "template--15932363800714__a5e8ff74-ebb4-410d-88fd-8b56208bbbd4-text-1": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Give customers details about the banner image(s) or content on the template.",
             "text_style": "body"
           }
         },
-        "button": {
+        "template--15932363800714__a5e8ff74-ebb4-410d-88fd-8b56208bbbd4-buttons-1": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_label_1": "hello",
+            "button_link_1": "shopify://collections/shop",
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -30,181 +88,85 @@
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "template--15932363800714__a5e8ff74-ebb4-410d-88fd-8b56208bbbd4-heading-1",
+        "template--15932363800714__a5e8ff74-ebb4-410d-88fd-8b56208bbbd4-text-1",
+        "template--15932363800714__a5e8ff74-ebb4-410d-88fd-8b56208bbbd4-buttons-1"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
+        "image": "shopify://shop_images/Lucila_Safdie0674.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
         "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
+        "color_scheme": "",
+        "image_behavior": "none",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
+        "stack_images_on_mobile": true,
         "show_text_below": false
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "b30cbc5e-4621-428d-ad27-449e34834a7f": {
+      "type": "image-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "template--15932363800714__b30cbc5e-4621-428d-ad27-449e34834a7f-buttons-1": {
+          "type": "buttons",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "button_label_1": "shop bottoms",
+            "button_link_1": "shopify://collections/shop",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "template--15932363800714__b30cbc5e-4621-428d-ad27-449e34834a7f-buttons-1"
       ],
+      "disabled": true,
       "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "image": "shopify://shop_images/Look_05_035_Large_077e50db-7e99-4f6c-9605-5b2291c64faf.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
+    "video_JfCRAg": {
       "type": "video",
+      "disabled": true,
+      "custom_css": [
+        ".video-section {height: 100vh; object-fit: fill;}",
+        ".video-section__media {object-fit: fill; height: 100%;}"
+      ],
       "settings": {
         "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/LUCILA SAFDIE FW25_FINALS_WEBSITE_16X9_WHITE_opt.mp4",
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
         "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "custom_liquid_JFPrCG",
+    "custom_liquid_mWXzdx",
+    "custom_liquid_9dihyb",
+    "custom_liquid_47xaye",
+    "a5e8ff74-ebb4-410d-88fd-8b56208bbbd4",
+    "b30cbc5e-4621-428d-ad27-449e34834a7f",
+    "video_JfCRAg"
   ]
 }

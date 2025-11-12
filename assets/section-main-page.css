@@ -1,9 +1,78 @@
 .page-title {
-  margin-top: 0;
+  margin-top: 8rem;
 }
 
 .main-page-title {
-  margin-bottom: 3rem;
+  margin-bottom: 1.3rem;
+  text-align: center;
+  /* display: none; */
+}
+
+.coll-block {
+  display: flex;
+  min-height: 5vh;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-bottom: 10rem; */
+  text-align: center;
+  /* border-bottom: 1px solid black; */
+}
+.coll-block-link {
+  display: flex;
+  min-height: 5vh;
+  border-bottom: 1px solid black;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-bottom: 10rem; */
+  text-align: center;
+  /* border-bottom: 1px solid black; */
+}
+
+.coll-block-last {
+  display: flex;
+  min-height: 5vh;
+  justify-content: center;
+  flex-direction: column;
+  /* margin-bottom: 10rem; */
+  text-align: center;
+  /* border-bottom: 1px solid black; */
+  border-bottom: none;
+}
+
+.coll-block a {
+  color: var(--main-color) !important;
+}
+
+.coll-block-link a {
+  color: var(--main-color) !important;
+}
+
+.coll-block-last a {
+  color: var(--main-color) !important;
+}
+
+.coll-block h6 {
+  margin-bottom: 4rem;
+}
+
+.coll-block a {
+  color: var(--main-color) !important;
+  text-decoration: underline;
+}
+
+#container_tc,
+#container_privacy {
+  margin-top: 10rem !important;
+  margin-bottom: 10rem !important;
+}
+
+#container_tc h6,
+#container_privacy h6 {
+  text-align: center;
+}
+
+#info__container {
+  padding-top: 3rem;
 }
 
 @media screen and (min-width: 750px) {
