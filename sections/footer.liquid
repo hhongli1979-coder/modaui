@@ -8,11 +8,70 @@
 {%- style -%}
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    background: linear-gradient(180deg, #f6f8f6 0%, #e8ede8 100%);
+    border-top: 1px solid rgba(107, 138, 107, 0.1);
   }
 
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .footer-block__heading {
+    color: #435a43;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer a {
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .footer a:hover {
+    color: #6b8a6b;
+  }
+
+  .list-menu__item--link {
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .list-menu__item--link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #88a488;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .list-menu__item--link:hover::before {
+    opacity: 1;
+  }
+
+  .newsletter-form__button {
+    background-color: #6b8a6b;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .newsletter-form__button:hover {
+    background-color: #547054;
+    transform: scale(1.05);
+  }
+
+  .footer__list-social svg {
+    transition: transform 0.2s ease, fill 0.2s ease;
+  }
+
+  .footer__list-social a:hover svg {
+    transform: translateY(-3px);
+    fill: #6b8a6b;
   }
 
   @media screen and (min-width: 750px) {
@@ -27,7 +86,7 @@
   }
 {%- endstyle -%}
 
-<footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+<footer class="footer color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding twcss-bg-gradient-to-b twcss-from-wellness-sage-50 twcss-to-wellness-sage-100">
   {%- liquid
     assign has_social_icons = true
     if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
