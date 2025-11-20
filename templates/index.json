@@ -1,8 +1,32 @@
 {
   "sections": {
     "amari_hero": {
-      "type": "amari-hero-v2",
+      "type": "amari-hero-v3",
       "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "🌿",
+            "text": "100% Natural Ingredients",
+            "text_color": "#374151"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "💧",
+            "text": "Clinically Proven Hydration",
+            "text_color": "#374151"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "✨",
+            "text": "Dermatologist Approved",
+            "text_color": "#374151"
+          }
+        },
         "product_card_1": {
           "type": "product_card",
           "settings": {}
@@ -13,17 +37,18 @@
         }
       },
       "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
         "product_card_1",
         "product_card_2"
       ],
       "settings": {
-        "heading": "Glow Naturally with Every Drop",
-        "badge_1_icon": "✓",
-        "badge_1_text": "100% Natural Ingredients",
-        "badge_2_icon": "✓",
-        "badge_2_text": "Clinically Proven Hydration",
-        "badge_3_icon": "✓",
-        "badge_3_text": "Dermatologist Approved",
+        "bg_color": "#FFF5EF",
+        "text_color": "#5B3A07",
+        "accent_color": "#A66828",
+        "heading": "Glow Naturally\nWith Every Drop",
+        "rotating_text": "BETTER SKIN  •  BEAUTY PRODUCTS  •",
         "button_label": "Browse Collections",
         "button_link": "/collections/all"
       }
