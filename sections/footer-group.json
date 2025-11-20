@@ -2,52 +2,46 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "footer": {
-      "type": "footer",
+    "amari-footer": {
+      "type": "amari-footer",
       "blocks": {
-        "footer-0": {
+        "quick-links": {
           "type": "link_list",
           "settings": {
             "heading": "Quick links",
             "menu": "footer"
           }
         },
-        "footer-1": {
+        "need-help": {
           "type": "link_list",
           "settings": {
-            "heading": "Info",
+            "heading": "Need Help",
             "menu": "footer"
           }
         },
-        "footer-2": {
-          "type": "text",
+        "contact-info": {
+          "type": "contact_info",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "heading": "Contact Info",
+            "address": "6847 Stirling Rd, Davie, Florida, US",
+            "email": "info@amari.com",
+            "phone": ""
           }
         }
       },
       "block_order": [
-        "footer-0",
-        "footer-1",
-        "footer-2"
+        "quick-links",
+        "need-help",
+        "contact-info"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
+        "description": "Skin care products that go beyond the surface, nurturing your skin at its core.",
         "show_social": true,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
-        "payment_enable": true,
-        "show_policy": false,
-        "margin_top": 48,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show_payment_icons": true
       }
     }
   },
   "order": [
-    "footer"
+    "amari-footer"
   ]
 }
