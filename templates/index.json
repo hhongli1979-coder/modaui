@@ -1,210 +1,399 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "amari_hero": {
+      "type": "amari-hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "product_card_1": {
+          "type": "product_card",
+          "settings": {}
+        },
+        "product_card_2": {
+          "type": "product_card",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_card_1",
+        "product_card_2"
+      ],
+      "settings": {
+        "heading": "Glow Naturally with Every Drop",
+        "badge_1_icon": "✓",
+        "badge_1_text": "100% Natural Ingredients",
+        "badge_2_icon": "✓",
+        "badge_2_text": "Clinically Proven Hydration",
+        "badge_3_icon": "✓",
+        "badge_3_text": "Dermatologist Approved",
+        "button_label": "Browse Collections",
+        "button_link": "/collections/all"
+      }
+    },
+    "amari_word_cloud": {
+      "type": "amari-word-cloud",
+      "blocks": {
+        "word_1": {
+          "type": "word",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "text": "Luminescent",
+            "show_icon": true
           }
         },
-        "text": {
-          "type": "text",
+        "word_2": {
+          "type": "word",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "text": "Youthful",
+            "show_icon": false
           }
         },
-        "button": {
-          "type": "buttons",
+        "word_3": {
+          "type": "word",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "text": "Soft",
+            "show_icon": true
+          }
+        },
+        "word_4": {
+          "type": "word",
+          "settings": {
+            "text": "Dewy",
+            "show_icon": false
+          }
+        },
+        "word_5": {
+          "type": "word",
+          "settings": {
+            "text": "Smooth",
+            "show_icon": true
+          }
+        },
+        "word_6": {
+          "type": "word",
+          "settings": {
+            "text": "Vibrant",
+            "show_icon": false
+          }
+        },
+        "word_7": {
+          "type": "word",
+          "settings": {
+            "text": "Radiance",
+            "show_icon": true
+          }
+        },
+        "word_8": {
+          "type": "word",
+          "settings": {
+            "text": "Glow",
+            "show_icon": false
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "word_1",
+        "word_2",
+        "word_3",
+        "word_4",
+        "word_5",
+        "word_6",
+        "word_7",
+        "word_8"
       ],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
+      "settings": {}
     },
-    "rich_text": {
-      "type": "rich-text",
+    "amari_collections": {
+      "type": "amari-collections",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "collection_1": {
+          "type": "collection",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "show_title": false
           }
         },
-        "text": {
-          "type": "text",
+        "collection_2": {
+          "type": "collection",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "show_title": false
+          }
+        },
+        "collection_3": {
+          "type": "collection",
+          "settings": {
+            "show_title": false
+          }
+        },
+        "collection_4": {
+          "type": "collection",
+          "settings": {
+            "show_title": false
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "collection_1",
+        "collection_2",
+        "collection_3",
+        "collection_4"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "heading": "Our Collections"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "amari_exclusive": {
+      "type": "amari-exclusive-products",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "text": "Perfect for Oily & Acne Prone Skin"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "text": "Works Efficiently for Skin Nourishment"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "text": "Effective in Fighting Infections"
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "text": "Natural Antiseptic Properties"
+          }
+        },
+        "feature_5": {
+          "type": "feature",
+          "settings": {
+            "text": "Remarkable Cleansing Power"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4",
+        "feature_5"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
+        "heading": "The Power Of Our Exclusive Products",
+        "description": "Experience the transcendence of beauty with the Power of Our Exclusive Products. Elevate your skincare routine with unique formulations crafted to deliver unparalleled results. Unleash radiant and healthy skin like never before, as we redefine the essence of skincare excellence."
+      }
+    },
+    "amari_best_sellers": {
+      "type": "amari-best-sellers",
+      "settings": {
+        "heading": "Best Sellers",
         "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "show_view_all": true
       }
     },
-    "collage": {
-      "type": "collage",
+    "amari_promo_banners": {
+      "type": "amari-promo-banners",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "banner_1": {
+          "type": "banner",
           "settings": {
-            "collection": ""
+            "discount_badge": "30% Off",
+            "heading": "Complete Care. One Combo.",
+            "subheading": "Ultimate skin care set for glowing, hydrated, and youthful skin.",
+            "button_label": "Shop Combo",
+            "button_link": "/collections",
+            "height_class": "min-h-[400px]",
+            "text_align": "text-left",
+            "text_color": "text-gray-900",
+            "bg_color": "bg-amber-100"
           }
         },
-        "product": {
-          "type": "product",
+        "banner_2": {
+          "type": "banner",
           "settings": {
-            "product": "",
-            "second_image": false
+            "discount_badge": "10% Off",
+            "heading": "Limited Time Offer!",
+            "subheading": "Pore Minimizer Perfection Cleanser",
+            "button_label": "Shop Now",
+            "button_link": "/collections",
+            "height_class": "min-h-[400px]",
+            "text_align": "text-left",
+            "text_color": "text-gray-900",
+            "bg_color": "bg-pink-100"
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "banner_3": {
+          "type": "banner",
           "settings": {
-            "collection": ""
+            "discount_badge": "25% Off",
+            "heading": "Turn Back Time with Every Drop!",
+            "subheading": "Youthful Glow Anti-Aging Serum",
+            "button_label": "Shop Now",
+            "button_link": "/collections",
+            "height_class": "min-h-[400px]",
+            "text_align": "text-left",
+            "text_color": "text-white",
+            "bg_color": "bg-amber-700",
+            "overlay_gradient": "from-black/30 to-black/30"
+          }
+        },
+        "banner_4": {
+          "type": "banner",
+          "settings": {
+            "heading": "Radiance Unveiled",
+            "subheading": "Skin Whitening/Brightening Cream",
+            "button_label": "Shop Now",
+            "button_link": "/collections",
+            "height_class": "min-h-[400px]",
+            "text_align": "text-left",
+            "text_color": "text-gray-900",
+            "bg_color": "bg-gray-100"
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "banner_1",
+        "banner_2",
+        "banner_3",
+        "banner_4"
       ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "settings": {}
     },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
+    "amari_expertise": {
+      "type": "amari-expertise",
       "blocks": {
-        "column1": {
-          "type": "column",
+        "stat_1": {
+          "type": "stat",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "number": "8K+",
+            "label": "Global Customers"
           }
         },
-        "column2": {
-          "type": "column",
+        "stat_2": {
+          "type": "stat",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "number": "12K+",
+            "label": "Products Delivered"
           }
         },
-        "column3": {
-          "type": "column",
+        "stat_3": {
+          "type": "stat",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "number": "10+",
+            "label": "Years In Business"
           }
         }
       },
       "block_order": [
-        "column1",
-        "column2",
-        "column3"
+        "stat_1",
+        "stat_2",
+        "stat_3"
       ],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "heading": "Unlock Your True Beauty with Our Expertise",
+        "description": "At Amari, we believe in the transformative power of skincare. Our journey began with a vision to redefine beauty by crafting products that go beyond the surface, nurturing your skin at its core. Committed to excellence, we curate each formula with precision, infusing nature's finest ingredients to create a harmonious blend of science and beauty.",
+        "button_label": "Read More",
+        "button_link": "#"
+      }
+    },
+    "amari_blogs": {
+      "type": "amari-blogs",
+      "settings": {
+        "heading": "News & Blogs",
+        "articles_to_show": 3,
+        "show_view_all": true
+      }
+    },
+    "amari_testimonials": {
+      "type": "amari-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "content": "I am a frequent shopper at this online jewelry store, and I can't praise them enough. They offer a wide range of styles, from classic to contemporary, and their prices are reasonable. The jewelry arrives beautifully packaged and always exceeds my expectations.",
+            "author_name": "Samuel Hanna",
+            "author_location": "New York"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "content": "The products are amazing! My skin has never looked better. The natural ingredients make a real difference and I love how gentle they are on my sensitive skin.",
+            "author_name": "Emma Johnson",
+            "author_location": "California"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "content": "Outstanding quality and customer service. I've been using these products for months now and the results speak for themselves. Highly recommended!",
+            "author_name": "Michael Chen",
+            "author_location": "London"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "settings": {
+        "heading": "What Our Customers Are Saying"
+      }
+    },
+    "amari_instagram": {
+      "type": "amari-instagram",
+      "blocks": {
+        "post_1": {
+          "type": "instagram_post",
+          "settings": {}
+        },
+        "post_2": {
+          "type": "instagram_post",
+          "settings": {}
+        },
+        "post_3": {
+          "type": "instagram_post",
+          "settings": {}
+        },
+        "post_4": {
+          "type": "instagram_post",
+          "settings": {}
+        },
+        "post_5": {
+          "type": "instagram_post",
+          "settings": {}
+        },
+        "post_6": {
+          "type": "instagram_post",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "post_1",
+        "post_2",
+        "post_3",
+        "post_4",
+        "post_5",
+        "post_6"
+      ],
+      "settings": {
+        "heading": "Follow Us On Instagram",
+        "hashtag": "#theAmari"
       }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "amari_hero",
+    "amari_word_cloud",
+    "amari_collections",
+    "amari_exclusive",
+    "amari_best_sellers",
+    "amari_promo_banners",
+    "amari_expertise",
+    "amari_blogs",
+    "amari_testimonials",
+    "amari_instagram"
   ]
 }

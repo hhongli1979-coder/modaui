@@ -1,0 +1,114 @@
+<div class="bg-white py-16 lg:py-24">
+  <div class="container mx-auto px-4">
+    {% if section.settings.heading != blank %}
+      <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-6xl mx-auto">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'collection' %}
+            {% if block.settings.collection != blank %}
+              {% assign collection = block.settings.collection %}
+              <a href="{{ collection.url }}" class="group flex flex-col items-center">
+                <div class="w-full aspect-square rounded-full overflow-hidden mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  {% if collection.image %}
+                    {{ collection.image | image_url: width: 400 | image_tag: class: 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-500', loading: 'lazy' }}
+                  {% elsif collection.products.first.featured_image %}
+                    {{ collection.products.first.featured_image | image_url: width: 400 | image_tag: class: 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-500', loading: 'lazy' }}
+                  {% else %}
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                      <span class="text-gray-400">No image</span>
+                    </div>
+                  {% endif %}
+                </div>
+                {% if block.settings.show_title %}
+                  <h3 class="text-center text-lg font-medium text-gray-900 group-hover:text-amber-700 transition-colors">
+                    {{ collection.title }}
+                  </h3>
+                {% endif %}
+              </a>
+            {% elsif block.settings.image != blank %}
+              <div class="group flex flex-col items-center">
+                <div class="w-full aspect-square rounded-full overflow-hidden mb-4 shadow-lg">
+                  {{ block.settings.image | image_url: width: 400 | image_tag: class: 'w-full h-full object-cover', loading: 'lazy' }}
+                </div>
+                {% if block.settings.title != blank %}
+                  <h3 class="text-center text-lg font-medium text-gray-900">
+                    {{ block.settings.title }}
+                  </h3>
+                {% endif %}
+              </div>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Amari Collections",
+  "tag": "section",
+  "class": "section-collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "Show Collection Title",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image (if no collection selected)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title (if no collection selected)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Amari Collections",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
