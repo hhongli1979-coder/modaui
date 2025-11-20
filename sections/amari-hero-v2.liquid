@@ -1,0 +1,238 @@
+<div style="background: linear-gradient(135deg, #FFF8F0 0%, #FFE4CC 100%); position: relative; min-height: 700px; overflow: hidden;">
+  <div style="max-width: 1400px; margin: 0 auto; padding: 60px 20px; position: relative;">
+
+    {%- comment -%} Small decorative oval - top left {%- endcomment -%}
+    {% if section.settings.oval_image_1 != blank %}
+      <div style="position: absolute; top: 80px; left: 40px; width: 170px; height: 170px; border-radius: 50%; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); z-index: 5;">
+        {{ section.settings.oval_image_1 | image_url: width: 400 | image_tag: style: 'width: 100%; height: 100%; object-fit: cover;' }}
+      </div>
+    {% endif %}
+
+    {%- comment -%} Medium decorative oval - left side {%- endcomment -%}
+    {% if section.settings.oval_image_2 != blank %}
+      <div style="position: absolute; top: 320px; left: 20px; width: 130px; height: 170px; border-radius: 50%; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); z-index: 5;">
+        {{ section.settings.oval_image_2 | image_url: width: 350 | image_tag: style: 'width: 100%; height: 100%; object-fit: cover;' }}
+      </div>
+    {% endif %}
+
+    {%- comment -%} Large central hero oval {%- endcomment -%}
+    {% if section.settings.oval_image_3 != blank %}
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; height: 520px; border-radius: 50%; overflow: hidden; border: 10px solid white; box-shadow: 0 25px 60px rgba(0,0,0,0.15); z-index: 3;">
+        {{ section.settings.oval_image_3 | image_url: width: 900 | image_tag: style: 'width: 100%; height: 100%; object-fit: cover;' }}
+      </div>
+    {% endif %}
+
+    {%- comment -%} Small decorative oval - right side {%- endcomment -%}
+    {% if section.settings.oval_image_4 != blank %}
+      <div style="position: absolute; top: 280px; right: 50px; width: 140px; height: 190px; border-radius: 50%; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); z-index: 5;">
+        {{ section.settings.oval_image_4 | image_url: width: 400 | image_tag: style: 'width: 100%; height: 100%; object-fit: cover;' }}
+      </div>
+    {% endif %}
+
+    {%- comment -%} Content - Left side {%- endcomment -%}
+    <div style="position: relative; z-index: 10; max-width: 500px; padding-top: 60px;">
+      {% if section.settings.heading != blank %}
+        <h1 style="font-size: 56px; font-weight: 800; color: #1a1a1a; line-height: 1.1; margin-bottom: 30px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+          {{ section.settings.heading }}
+        </h1>
+      {% endif %}
+
+      <div style="margin-bottom: 35px;">
+        {% if section.settings.badge_1_text != blank %}
+          <p style="display: flex; align-items: center; margin-bottom: 12px; font-size: 16px; color: #4a4a4a;">
+            <span style="color: #b45309; margin-right: 12px; font-size: 20px; font-weight: bold;">✓</span>
+            <span style="font-weight: 500;">{{ section.settings.badge_1_text }}</span>
+          </p>
+        {% endif %}
+        {% if section.settings.badge_2_text != blank %}
+          <p style="display: flex; align-items: center; margin-bottom: 12px; font-size: 16px; color: #4a4a4a;">
+            <span style="color: #b45309; margin-right: 12px; font-size: 20px; font-weight: bold;">✓</span>
+            <span style="font-weight: 500;">{{ section.settings.badge_2_text }}</span>
+          </p>
+        {% endif %}
+        {% if section.settings.badge_3_text != blank %}
+          <p style="display: flex; align-items: center; margin-bottom: 12px; font-size: 16px; color: #4a4a4a;">
+            <span style="color: #b45309; margin-right: 12px; font-size: 20px; font-weight: bold;">✓</span>
+            <span style="font-weight: 500;">{{ section.settings.badge_3_text }}</span>
+          </p>
+        {% endif %}
+      </div>
+
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" style="display: inline-flex; align-items: center; gap: 10px; padding: 18px 35px; background-color: #92400e; color: white; font-weight: 600; font-size: 16px; border-radius: 10px; text-decoration: none; box-shadow: 0 8px 20px rgba(146, 64, 14, 0.3); transition: all 0.3s;">
+          {{ section.settings.button_label }}
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" style="margin-left: 5px;">
+            <path d="M6 12L10 8L6 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+
+    {%- comment -%} Product Cards - Right side {%- endcomment -%}
+    <div style="position: absolute; right: 60px; top: 100px; z-index: 20; width: 320px;">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'product_card' %}
+            {% if block.settings.product != blank %}
+              {% assign product = block.settings.product %}
+              <a href="{{ product.url }}" style="display: block; background: white; border-radius: 20px; padding: 20px; margin-bottom: 20px; box-shadow: 0 12px 35px rgba(0,0,0,0.12); text-decoration: none; transition: all 0.3s;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                  <div style="flex: 1;">
+                    <h3 style="font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 0 0 8px 0; line-height: 1.4;">
+                      {{ product.title }}
+                    </h3>
+                    <p style="font-size: 17px; font-weight: 700; color: #92400e; margin: 0 0 6px 0;">
+                      {{ product.price | money }}
+                    </p>
+                    <div style="display: flex; color: #fbbf24; font-size: 12px;">
+                      <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                  </div>
+                  {% if product.featured_image %}
+                    <div style="width: 90px; height: 90px; border-radius: 12px; overflow: hidden; flex-shrink: 0;">
+                      {{ product.featured_image | image_url: width: 200 | image_tag: style: 'width: 100%; height: 100%; object-fit: cover;' }}
+                    </div>
+                  {% endif %}
+                </div>
+              </a>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{%- comment -%} Mobile Responsive Styles {%- endcomment -%}
+<style>
+  @media (max-width: 1024px) {
+    div[style*="position: absolute"][style*="right: 60px"] {
+      display: none !important;
+    }
+    div[style*="position: absolute"][style*="left: 50%"] {
+      width: 300px !important;
+      height: 400px !important;
+    }
+  }
+  @media (max-width: 768px) {
+    div[style*="position: absolute"][style*="left: 40px"],
+    div[style*="position: absolute"][style*="left: 20px"],
+    div[style*="position: absolute"][style*="right: 50px"] {
+      display: none !important;
+    }
+    div[style*="position: absolute"][style*="left: 50%"] {
+      position: relative !important;
+      transform: none !important;
+      left: auto !important;
+      top: auto !important;
+      margin: 30px auto;
+      width: 280px !important;
+      height: 360px !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Amari Hero V2",
+  "tag": "section",
+  "class": "section-amari-hero-v2",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Glow Naturally with Every Drop"
+    },
+    {
+      "type": "header",
+      "content": "Oval Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "oval_image_1",
+      "label": "Oval Image 1 (Top Left - Small)"
+    },
+    {
+      "type": "image_picker",
+      "id": "oval_image_2",
+      "label": "Oval Image 2 (Left Side - Medium)"
+    },
+    {
+      "type": "image_picker",
+      "id": "oval_image_3",
+      "label": "Oval Image 3 (Center - Large Hero)"
+    },
+    {
+      "type": "image_picker",
+      "id": "oval_image_4",
+      "label": "Oval Image 4 (Right Side - Small)"
+    },
+    {
+      "type": "header",
+      "content": "Feature Badges"
+    },
+    {
+      "type": "text",
+      "id": "badge_1_text",
+      "label": "Badge 1 Text",
+      "default": "100% Natural Ingredients"
+    },
+    {
+      "type": "text",
+      "id": "badge_2_text",
+      "label": "Badge 2 Text",
+      "default": "Clinically Proven Hydration"
+    },
+    {
+      "type": "text",
+      "id": "badge_3_text",
+      "label": "Badge 3 Text",
+      "default": "Dermatologist Approved"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Browse Collections"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Amari Hero V2",
+      "blocks": [
+        {
+          "type": "product_card"
+        },
+        {
+          "type": "product_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
