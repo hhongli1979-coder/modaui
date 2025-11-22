@@ -1,0 +1,394 @@
+{%- liquid
+  assign heading = section.settings.heading
+  assign top_image = section.settings.top_image
+  assign main_image = section.settings.main_image
+  assign button_label = section.settings.button_label
+  assign button_link = section.settings.button_link
+  assign rotating_text = section.settings.rotating_text
+
+  assign bg_color = section.settings.bg_color
+  assign text_color = section.settings.text_color
+  assign accent_color = section.settings.accent_color
+-%}
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  .hero-v3-section {
+    background-color: {{ bg_color }};
+    color: {{ text_color }};
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .hero-v3-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-v3-arch-shape {
+    border-radius: 3rem 3rem 3rem 1rem;
+  }
+
+  .hero-v3-card-1 {
+    border-radius: 3rem 3rem 3rem 3rem;
+  }
+
+  .hero-v3-card-2 {
+    border-radius: 3rem 3rem 1rem 3rem;
+  }
+
+  .hero-v3-main-image {
+    border-radius: 10rem;
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-v3-rotate {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .hero-v3-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  .hero-v3-button svg {
+    transition: transform 0.3s ease;
+  }
+
+  .hero-v3-button:hover svg {
+    transform: translateX(4px);
+  }
+
+  .hero-v3-card {
+    transition: all 0.3s ease;
+  }
+
+  .hero-v3-card:hover {
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 1024px) {
+    .hero-v3-section {
+      min-height: auto;
+    }
+  }
+</style>
+
+<section class="hero-v3-section relative w-full min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-16 py-12">
+  <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center relative z-10">
+
+    <!-- LEFT COLUMN: Content -->
+    <div class="lg:col-span-4 flex flex-col gap-6 relative">
+
+      <!-- Decorative Dots (Behind small image) -->
+      <div class="absolute -top-10 left-20 -z-10 opacity-30 hidden lg:block">
+        <svg width="100" height="100" fill="{{ accent_color }}">
+          <pattern id="dots-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="2"></circle>
+          </pattern>
+          <rect width="100" height="80" fill="url(#dots-pattern)"></rect>
+        </svg>
+      </div>
+
+      <!-- Top Small Image (Arch Shape) -->
+      {% if top_image != blank %}
+        <div class="w-48 h-24 relative overflow-hidden hero-v3-arch-shape mb-2 shadow-sm">
+          {{ top_image | image_url: width: 400 | image_tag: loading: 'eager', class: 'w-full h-full object-cover' }}
+        </div>
+      {% endif %}
+
+      <!-- Headline -->
+      {% if heading != blank %}
+        <h1 class="hero-v3-heading" style="color: {{ text_color }};">
+          {{ heading }}
+        </h1>
+      {% endif %}
+
+      <!-- Features List -->
+      <div class="space-y-4 mt-2">
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div class="flex items-center gap-3">
+              {% if block.settings.icon != blank %}
+                <span class="text-xl">{{ block.settings.icon }}</span>
+              {% endif %}
+              <span class="font-semibold" style="color: {{ block.settings.text_color | default: '#374151' }};">
+                {{ block.settings.text }}
+              </span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- CTA Button -->
+      {% if button_label != blank %}
+        <div class="mt-4">
+          <a href="{{ button_link }}"
+             class="hero-v3-button inline-flex items-center gap-2 px-8 py-4 rounded-xl font-medium shadow-lg transition-all duration-300"
+             style="background-color: {{ accent_color }}; color: white;">
+            {{ button_label }}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        </div>
+      {% endif %}
+
+      <!-- Bottom Left Star Decoration -->
+      <div class="absolute -bottom-24 left-10 hidden lg:block">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="{{ accent_color }}" stroke-width="1.5">
+          <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" stroke-linejoin="round" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- CENTER COLUMN: Main Image -->
+    <div class="lg:col-span-4 flex justify-center relative mt-12 lg:mt-0">
+
+      <!-- Curved Text SVG (Rotating) -->
+      {% if rotating_text != blank %}
+        <div class="absolute -top-12 -left-8 w-48 h-48 z-20 pointer-events-none hero-v3-rotate hidden lg:block">
+          <svg viewBox="0 0 200 200" class="w-full h-full">
+            <defs>
+              <path id="circlePath-{{ section.id }}" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+            </defs>
+            <text fill="{{ text_color }}" font-size="12" font-weight="bold" letter-spacing="4">
+              <textPath href="#circlePath-{{ section.id }}" startOffset="0%">
+                {{ rotating_text }}
+              </textPath>
+            </text>
+          </svg>
+        </div>
+      {% endif %}
+
+      <!-- Main Oval Image -->
+      {% if main_image != blank %}
+        <div class="relative w-[280px] md:w-[320px] h-[450px] md:h-[500px] hero-v3-main-image overflow-hidden shadow-2xl border-4 border-white">
+          {{ main_image | image_url: width: 800 | image_tag: loading: 'eager', class: 'w-full h-full object-cover' }}
+        </div>
+      {% else %}
+        <div class="relative w-[280px] md:w-[320px] h-[450px] md:h-[500px] hero-v3-main-image overflow-hidden shadow-2xl border-4 border-white" style="background: #e5e7eb;"></div>
+      {% endif %}
+
+      <!-- Right Sparkle/Star -->
+      <div class="absolute top-1/2 -right-8 transform -translate-y-1/2 z-20 hidden lg:block">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="{{ accent_color }}">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Product Cards -->
+    <div class="lg:col-span-4 flex flex-col gap-8 relative mt-12 lg:mt-0 pl-0 lg:pl-8">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'product_card' %}
+          {% assign product = block.settings.product %}
+          {% if product != blank %}
+            {% assign card_style = forloop.index | modulo: 2 %}
+            <a href="{{ product.url }}"
+               class="hero-v3-card relative border-2 p-6 flex items-center gap-4 cursor-pointer {% if card_style == 1 %}hero-v3-card-1 bg-transparent{% else %}hero-v3-card-2 bg-white/50 backdrop-blur-sm lg:translate-x-8{% endif %}"
+               style="border-color: {{ accent_color }};">
+
+              {% if card_style == 1 %}
+                <!-- Card 1 Layout -->
+                <div class="flex-1">
+                  <!-- Stars -->
+                  <div class="flex text-yellow-500 text-sm mb-2">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <h3 class="font-bold text-lg text-gray-800 leading-tight mb-2">{{ product.title }}</h3>
+                  <p class="font-semibold" style="color: {{ text_color }};">{{ product.price | money }}</p>
+                </div>
+                <!-- Product Image -->
+                {% if product.featured_image %}
+                  <div class="w-20 h-24 shrink-0">
+                    {{ product.featured_image | image_url: width: 200 | image_tag: class: 'w-full h-full object-contain drop-shadow-md transform rotate-3' }}
+                  </div>
+                {% endif %}
+              {% else %}
+                <!-- Card 2 Layout -->
+                {% if product.featured_image %}
+                  <div class="w-20 h-20 shrink-0">
+                    {{ product.featured_image | image_url: width: 200 | image_tag: class: 'w-full h-full object-contain drop-shadow-md' }}
+                  </div>
+                {% endif %}
+                <div class="flex-1">
+                  <!-- Stars -->
+                  <div class="flex text-yellow-500 text-sm mb-2">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                  </div>
+                  <h3 class="font-bold text-lg text-gray-800 leading-tight mb-2">{{ product.title }}</h3>
+                  <div class="flex items-center gap-2">
+                    <p class="font-semibold" style="color: {{ text_color }};">{{ product.price | money }}</p>
+                    {% if product.compare_at_price > product.price %}
+                      <p class="text-gray-400 text-sm line-through">{{ product.compare_at_price | money }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Amari Hero V3",
+  "tag": "section",
+  "class": "section-amari-hero-v3",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFF5EF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#5B3A07"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Button & Borders)",
+      "default": "#A66828"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Glow Naturally With Every Drop"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_image",
+      "label": "Top Small Image (Arch Shape)"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Center Image (Large Oval)"
+    },
+    {
+      "type": "text",
+      "id": "rotating_text",
+      "label": "Rotating Circular Text",
+      "default": "BETTER SKIN  •  BEAUTY PRODUCTS  •"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Browse Collections"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Badge",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Emoji)",
+          "default": "🌿"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature Text",
+          "default": "100% Natural Ingredients"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#374151"
+        }
+      ]
+    },
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Amari Hero V3",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🌿",
+            "text": "100% Natural Ingredients"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "💧",
+            "text": "Clinically Proven Hydration"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "✨",
+            "text": "Dermatologist Approved"
+          }
+        },
+        {
+          "type": "product_card"
+        },
+        {
+          "type": "product_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

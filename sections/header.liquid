@@ -21,6 +21,7 @@
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
       width: 75%;
+      transition: width 0.3s ease;
     }
   {%- endif -%}
 
@@ -45,6 +46,7 @@
   .list-menu--inline {
     display: inline-flex;
     flex-wrap: wrap;
+    gap: 1rem;
   }
 
   summary.list-menu__item {
@@ -55,6 +57,13 @@
     display: flex;
     align-items: center;
     line-height: calc(1 + 0.3 / var(--font-body-scale));
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+
+  .list-menu__item:hover {
+    color: #6b8a6b;
   }
 
   .list-menu__item--link {
@@ -62,6 +71,22 @@
     padding-bottom: 1rem;
     padding-top: 1rem;
     line-height: calc(1 + 0.8 / var(--font-body-scale));
+    position: relative;
+  }
+
+  .list-menu__item--link::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #6b8a6b;
+    transition: width 0.3s ease;
+  }
+
+  .list-menu__item--link:hover::after {
+    width: 100%;
   }
 
   @media screen and (min-width: 750px) {
@@ -69,17 +94,42 @@
       padding-bottom: 0.5rem;
       padding-top: 0.5rem;
     }
+
+    .list-menu__item--link::after {
+      bottom: 0.2rem;
+    }
+  }
+
+  .header__heading-logo-wrapper {
+    transition: all 0.3s ease;
+  }
+
+  .header__icon {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .header__icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  .cart-count-bubble {
+    background-color: #6b8a6b;
+    transition: background-color 0.2s ease;
   }
 </style>
 
 {%- style -%}
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95);
   }
 
   .section-header {
-    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
+    position: sticky;
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+    box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07);
   }
 
   @media screen and (min-width: 750px) {
@@ -457,12 +507,20 @@
           "label": "t:sections.header.settings.logo_position.options__3.label"
         },
         {
+          "value": "top-right",
+          "label": "Top right"
+        },
+        {
           "value": "middle-left",
           "label": "t:sections.header.settings.logo_position.options__1.label"
         },
         {
           "value": "middle-center",
           "label": "t:sections.header.settings.logo_position.options__4.label"
+        },
+        {
+          "value": "middle-right",
+          "label": "Middle right"
         }
       ],
       "default": "middle-left",

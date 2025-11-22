@@ -40,7 +40,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <div class="card-wrapper product-card-wrapper underline-links-hover twcss-group twcss-transition-all twcss-duration-300 hover:twcss-transform hover:twcss-translate-y-[-4px]">
     <div
       class="
         card card--{{ settings.card_style }}
@@ -50,11 +50,12 @@
         {% if extend_height %} card--extend-height{% endif %}
         {% if card_product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}
         {% if horizontal_class %} card--horizontal{% endif %}
+        twcss-rounded-2xl twcss-overflow-hidden twcss-shadow-soft group-hover:twcss-shadow-wellness twcss-bg-white twcss-transition-all twcss-duration-300
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
       <div
-        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
+        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %} twcss-transition-transform twcss-duration-300"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- if card_product.featured_media -%}

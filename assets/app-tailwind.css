@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* Wellness Button Styles */
+  .btn-wellness-primary {
+    @apply twcss-bg-primary twcss-text-white twcss-px-8 twcss-py-4 twcss-rounded-full twcss-font-medium twcss-transition-all twcss-duration-300 hover:twcss-bg-primary-dark hover:twcss-shadow-wellness hover:twcss-transform hover:twcss-scale-105;
+  }
+
+  .btn-wellness-secondary {
+    @apply twcss-bg-secondary twcss-text-neutral-900 twcss-px-8 twcss-py-4 twcss-rounded-full twcss-font-medium twcss-transition-all twcss-duration-300 hover:twcss-bg-secondary-dark hover:twcss-shadow-soft;
+  }
+
+  .btn-wellness-outline {
+    @apply twcss-border-2 twcss-border-primary twcss-text-primary twcss-px-8 twcss-py-4 twcss-rounded-full twcss-font-medium twcss-transition-all twcss-duration-300 hover:twcss-bg-primary hover:twcss-text-white hover:twcss-shadow-wellness;
+  }
+
+  /* Wellness Card Styles */
+  .card-wellness {
+    @apply twcss-bg-white twcss-rounded-2xl twcss-shadow-soft twcss-overflow-hidden twcss-transition-all twcss-duration-300 hover:twcss-shadow-wellness hover:twcss-transform hover:twcss-translate-y-[-4px];
+  }
+
+  /* Wellness Heading Styles */
+  .heading-wellness {
+    @apply twcss-font-heading twcss-text-primary-dark twcss-tracking-tight twcss-leading-tight;
+  }
+
+  /* Wellness Input Styles */
+  .input-wellness {
+    @apply twcss-w-full twcss-px-4 twcss-py-3 twcss-border-2 twcss-border-neutral-200 twcss-rounded-xl twcss-transition-all twcss-duration-300 focus:twcss-border-primary focus:twcss-ring-2 focus:twcss-ring-primary focus:twcss-ring-opacity-20 focus:twcss-outline-none;
+  }
+
+  /* Wellness Badge Styles */
+  .badge-wellness {
+    @apply twcss-inline-flex twcss-items-center twcss-px-3 twcss-py-1 twcss-rounded-full twcss-text-sm twcss-font-medium twcss-bg-wellness-sage-100 twcss-text-wellness-sage-800;
+  }
+
+  /* Wellness Section Padding */
+  .section-wellness {
+    @apply twcss-py-16 md:twcss-py-24 lg:twcss-py-30;
+  }
+
+  /* Wellness Container */
+  .container-wellness {
+    @apply twcss-max-w-screen-xlg twcss-mx-auto twcss-px-4 md:twcss-px-6 lg:twcss-px-8;
+  }
+
+  /* Wellness Gradient Background */
+  .bg-wellness-gradient {
+    @apply twcss-bg-gradient-to-br twcss-from-wellness-sage-50 twcss-via-white twcss-to-wellness-cream-50;
+  }
+
+  /* Wellness Text Link */
+  .link-wellness {
+    @apply twcss-text-primary twcss-font-medium twcss-transition-all twcss-duration-200 hover:twcss-text-primary-dark hover:twcss-underline twcss-underline-offset-4;
+  }
+
+  /* Wellness Divider */
+  .divider-wellness {
+    @apply twcss-h-px twcss-bg-gradient-to-r twcss-from-transparent twcss-via-wellness-sage-300 twcss-to-transparent;
+  }
+}

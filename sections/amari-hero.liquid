@@ -1,0 +1,116 @@
+{%- liquid
+  assign section_st = section.settings
+  assign hero_image = section_st.hero_image
+  assign collection = section_st.collection
+  assign hero_heading = section_st.hero_heading
+  assign hero_subheading = section_st.hero_subheading
+  assign cta_text = section_st.cta_text
+  assign cta_url = section_st.cta_url
+
+  assign product_1 = section_st.product_1
+  assign product_2 = section_st.product_2
+-%}
+
+<section class="twcss-bg-wellness-cream-100 twcss-py-12 md:twcss-py-20">
+  <div class="twcss-container twcss-mx-auto twcss-px-4">
+    <div class="twcss-grid twcss-grid-cols-1 md:twcss-grid-cols-2 twcss-gap-8 twcss-items-center">
+      <div class="twcss-text-center md:twcss-text-left">
+        <h2 class="twcss-text-sm twcss-font-body twcss-font-bold twcss-text-wellness-sage-700 twcss-tracking-widest">{{ hero_subheading }}</h2>
+        <h1 class="twcss-text-4xl md:twcss-text-6xl twcss-font-heading twcss-font-bold twcss-text-neutral-800 twcss-mt-4">{{ hero_heading }}</h1>
+        <a href="{{ cta_url }}" class="twcss-inline-block twcss-mt-8 twcss-bg-wellness-sage-600 twcss-text-white twcss-font-bold twcss-py-3 twcss-px-8 twcss-rounded-full twcss-transition-all twcss-duration-300 hover:twcss-bg-wellness-sage-700">
+          {{ cta_text }}
+        </a>
+      </div>
+      <div class="twcss-relative">
+        {% if hero_image != blank %}
+          <div class="twcss-aspect-w-3 twcss-aspect-h-4">
+            <img src="{{ hero_image | image_url: width: 800 }}" alt="{{ hero_image.alt | escape }}" class="twcss-w-full twcss-h-full twcss-object-cover twcss-rounded-3xl">
+          </div>
+        {% else %}
+          <div class="twcss-aspect-w-3 twcss-aspect-h-4 twcss-bg-wellness-sage-200 twcss-rounded-3xl"></div>
+        {% endif %}
+        <div class="twcss-absolute twcss-bottom-0 twcss-right-0 twcss-transform twcss-translate-x-1/4 twcss-w-3/4">
+          <div class="twcss-grid twcss-grid-cols-1 twcss-gap-4">
+            {% if product_1 != blank %}
+              <div class="twcss-bg-white twcss-rounded-2xl twcss-p-4 twcss-flex twcss-items-center twcss-gap-4 twcss-shadow-soft">
+                <div class="twcss-w-20 twcss-h-20 twcss-rounded-xl twcss-overflow-hidden">
+                  <img src="{{ product_1.featured_image | image_url: width: 200 }}" alt="{{ product_1.featured_image.alt | escape }}" class="twcss-w-full twcss-h-full twcss-object-cover">
+                </div>
+                <div>
+                  <h3 class="twcss-font-bold twcss-text-neutral-800">{{ product_1.title }}</h3>
+                  <p class="twcss-text-wellness-sage-700 twcss-font-bold">{{ product_1.price | money }}</p>
+                  <a href="{{ product_1.url }}" class="twcss-text-sm twcss-text-wellness-sage-700 twcss-font-bold">Shop Now</a>
+                </div>
+              </div>
+            {% endif %}
+            {% if product_2 != blank %}
+              <div class="twcss-bg-white twcss-rounded-2xl twcss-p-4 twcss-flex twcss-items-center twcss-gap-4 twcss-shadow-soft">
+                <div class="twcss-w-20 twcss-h-20 twcss-rounded-xl twcss-overflow-hidden">
+                  <img src="{{ product_2.featured_image | image_url: width: 200 }}" alt="{{ product_2.featured_image.alt | escape }}" class="twcss-w-full twcss-h-full twcss-object-cover">
+                </div>
+                <div>
+                  <h3 class="twcss-font-bold twcss-text-neutral-800">{{ product_2.title }}</h3>
+                  <p class="twcss-text-wellness-sage-700 twcss-font-bold">{{ product_2.price | money }}</p>
+                  <a href="{{ product_2.url }}" class="twcss-text-sm twcss-text-wellness-sage-700 twcss-font-bold">Shop Now</a>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Amari Hero",
+  "tag": "section",
+  "class": "section-amari-hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_subheading",
+      "label": "Subheading",
+      "default": "HYDRATE & NOURISH"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Heading",
+      "default": "Mindful Skincare for a Radiant You"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Label",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button Link"
+    },
+    {
+      "type": "product",
+      "id": "product_1",
+      "label": "Product 1"
+    },
+    {
+      "type": "product",
+      "id": "product_2",
+      "label": "Product 2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Amari Hero"
+    }
+  ]
+}
+{% endschema %}

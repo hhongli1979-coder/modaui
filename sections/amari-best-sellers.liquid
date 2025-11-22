@@ -1,0 +1,115 @@
+<div class="bg-white py-16 lg:py-24">
+  <div class="container mx-auto px-4">
+    {% if section.settings.heading != blank %}
+      <h2 class="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="relative max-w-7xl mx-auto">
+      {%- comment -%} Products Grid {%- endcomment -%}
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6" id="best-sellers-grid">
+        {% if section.settings.collection != blank %}
+          {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+            <div class="group">
+              <a href="{{ product.url }}" class="block">
+                <div class="relative bg-gray-100 rounded-2xl overflow-hidden mb-4 aspect-[3/4]">
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 400 | image_tag: class: 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-500', loading: 'lazy' }}
+                  {% endif %}
+
+                  {% if product.compare_at_price > product.price %}
+                    <div class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      Sale
+                    </div>
+                  {% endif %}
+
+                  <button class="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition-colors opacity-0 group-hover:opacity-100">
+                    <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="space-y-2">
+                  <h3 class="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-amber-700 transition-colors">
+                    {{ product.title }}
+                  </h3>
+
+                  {% if product.metafields.reviews.rating.value %}
+                    <div class="flex items-center text-yellow-400 text-xs">
+                      {% for i in (1..5) %}
+                        <span>★</span>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+
+                  <div class="flex items-center gap-2">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="text-gray-400 line-through text-sm">{{ product.compare_at_price | money }}</span>
+                      <span class="text-amber-700 font-bold">{{ product.price | money }}</span>
+                    {% else %}
+                      <span class="text-gray-900 font-bold">{{ product.price | money }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      {% if section.settings.show_view_all and section.settings.collection != blank %}
+        <div class="text-center mt-12">
+          <a href="{{ section.settings.collection.url }}" class="inline-flex items-center gap-2 bg-amber-800 hover:bg-amber-900 text-white px-8 py-3 rounded-md font-medium transition-colors duration-200">
+            View All
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="w-4 h-4">
+              <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Amari Best Sellers",
+  "tag": "section",
+  "class": "section-best-sellers",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Best Sellers"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "label": "Products to Show",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All' Button",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Amari Best Sellers"
+    }
+  ]
+}
+{% endschema %}
